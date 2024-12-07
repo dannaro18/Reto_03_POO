@@ -75,6 +75,8 @@ print(f"Corte con el eje X (línea 3): {line3.compute_horizontal_cross()}")
 
 print(f"Corte con el eje Y (línea 3): {line3.compute_vertical_cross()}")
 ```
+Este código define tres clases: `Point`, `Line` y `Rectangle`. La clase `Point` representa un punto en el plano 2D con coordenadas \(x\) y \(y\). La clase `Line` tiene dos puntos, `start` y `end`, que definen el inicio y el final de la línea, respectivamente. Esta clase incluye tres métodos: `compute_length`, que calcula la longitud de la línea usando la fórmula de distancia euclidiana; `compute_slope`, que calcula la pendiente de la línea, devolviendo `math.inf` si la línea es vertical; y `compute_horizontal_cross`, que calcula el punto de intersección con el eje X (si la línea no es horizontal). El método `compute_vertical_cross` calcula la intersección con el eje Y, devolviendo el valor de \(y\) si la línea es horizontal o calculando la intersección con el eje Y para líneas no horizontales. Finalmente, la clase `Rectangle` toma cuatro líneas como parámetros, que se asume que forman un rectángulo.  
+<br>
 
 ## 2. Restaurant scenario
 
@@ -161,3 +163,6 @@ print(f"Total Bill: ${total_bill:.2f}")
 total_after_discount = order.apply_discount()
 print(f"Total after 10% discount: ${total_after_discount:.2f}")
 ```
+
+Este código define un sistema para gestionar un menú de restaurante y calcular el total de la factura de una orden. La clase `MenuItem` es la clase base para los elementos del menú, que tiene un nombre, un precio y un método `calculate_total_price()` que simplemente devuelve el precio del artículo. Luego, hay tres subclases de `MenuItem` que representan tipos específicos de platos del menú: `Beverage` (bebidas), `Appetizer` (entrantes) y `MainCourse` (platos principales). Cada una de estas subclases tiene su propia lógica para calcular el precio total, que varía según el tamaño o la porción. Por ejemplo, en `Beverage`, el precio se multiplica por un factor dependiendo del tamaño de la bebida (Pequeño, Mediano, Grande), mientras que en `Appetizer` y `MainCourse`, el precio cambia según el tamaño de la porción (individual o doble, pequeño, regular, o grande). La clase `Order` maneja la colección de los artículos del menú que el cliente agrega a su pedido. El método `add_items()` agrega una lista de artículos al pedido, siempre y cuando sean instancias de `MenuItem`. El método `calculate_total_bill()` suma los precios de todos los elementos del pedido, y el método `apply_discount()` aplica un descuento del 10% si hay más de 5 elementos en el pedido.  
+<br>
