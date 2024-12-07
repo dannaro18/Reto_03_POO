@@ -166,3 +166,40 @@ print(f"Total after 10% discount: ${total_after_discount:.2f}")
 
 Este código define un sistema para gestionar un menú de restaurante y calcular el total de la factura de una orden. La clase `MenuItem` es la clase base para los elementos del menú, que tiene un nombre, un precio y un método `calculate_total_price()` que simplemente devuelve el precio del artículo. Luego, hay tres subclases de `MenuItem` que representan tipos específicos de platos del menú: `Beverage` (bebidas), `Appetizer` (entrantes) y `MainCourse` (platos principales). Cada una de estas subclases tiene su propia lógica para calcular el precio total, que varía según el tamaño o la porción. Por ejemplo, en `Beverage`, el precio se multiplica por un factor dependiendo del tamaño de la bebida (Pequeño, Mediano, Grande), mientras que en `Appetizer` y `MainCourse`, el precio cambia según el tamaño de la porción (individual o doble, pequeño, regular, o grande). La clase `Order` maneja la colección de los artículos del menú que el cliente agrega a su pedido. El método `add_items()` agrega una lista de artículos al pedido, siempre y cuando sean instancias de `MenuItem`. El método `calculate_total_bill()` suma los precios de todos los elementos del pedido, y el método `apply_discount()` aplica un descuento del 10% si hay más de 5 elementos en el pedido.  
 <br>
+
+### Diagrama
+```Mermaid
+classDiagram
+    class MenuItem {
+        +string name
+        +float price
+        +calculate_total_price() float
+    }
+
+    class Beverage {
+        +string size
+        +calculate_total_price() float
+    }
+
+    class Appetizer {
+        +string portion_size
+        +calculate_total_price() float
+    }
+
+    class MainCourse {
+        +string portion_size
+        +calculate_total_price() float
+    }
+
+    class Order {
+        +list items
+        +add_items(items)
+        +calculate_total_bill() float
+        +apply_discount() float
+    }
+
+    MenuItem <|-- Beverage
+    MenuItem <|-- Appetizer
+    MenuItem <|-- MainCourse
+    Order o-- MenuItem : contains
+```
