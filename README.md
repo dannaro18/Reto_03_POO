@@ -168,7 +168,7 @@ Este código define un sistema para gestionar un menú de restaurante y calcular
 <br>
 
 ### Diagrama
-```Mermaid
+```mermaid
 classDiagram
     class MenuItem {
         +string name
